@@ -1,9 +1,9 @@
 Anaglobine est une plateforme web moderne permettant la gestion complète des analyses médicales : prise de rendez-vous, consultation des résultats, gestion des laboratoires, paiement en ligne et assistance via IA.
 Elle propose une solution simple et intuitive destinée aux patients, laboratoires, réceptionnistes et administrateurs.
 
-##Acteurs du Projet
+Acteurs du Projet
 
-###Visiteur	
+Visiteur	
 - Consulter les informations sur les laboratoires et les analyses disponibles.
 - Naviguer sur la plateforme sans inscription.
 - Commencer le processus de prise de rendez-vous (inscription obligatoire pour finaliser).
