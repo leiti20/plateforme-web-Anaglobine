@@ -1,7 +1,7 @@
 Anaglobine est une plateforme web moderne permettant la gestion complète des analyses médicales : prise de rendez-vous, consultation des résultats, gestion des laboratoires, paiement en ligne et assistance via IA.
 Elle propose une solution simple et intuitive destinée aux patients, laboratoires, réceptionnistes et administrateurs.
 
-##Acteurs du Projet
+Acteurs du Projet
 ###Visiteur	
 - Consulter les informations sur les laboratoires et les analyses disponibles.
 - Naviguer sur la plateforme sans inscription.
@@ -26,7 +26,7 @@ Elle propose une solution simple et intuitive destinée aux patients, laboratoir
 - Superviser la plateforme.
 - Configurer les paramètres techniques et l’IA.
 	
- ##Lancer le Projet en Local	
+Lancer le Projet en Local	
  ###Prérequis
 - Python 3.8+
 - Django
