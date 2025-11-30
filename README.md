@@ -1,7 +1,7 @@
 Anaglobine est une plateforme web moderne permettant la gestion complète des analyses médicales : prise de rendez-vous, consultation des résultats, gestion des laboratoires, paiement en ligne et assistance via IA.
 Elle propose une solution simple et intuitive destinée aux patients, laboratoires, réceptionnistes et administrateurs.
 
-###Acteurs du Projet
+##Acteurs du Projet
 ###Visiteur	
 - Consulter les informations sur les laboratoires et les analyses disponibles.
 - Naviguer sur la plateforme sans inscription.
@@ -26,7 +26,7 @@ Elle propose une solution simple et intuitive destinée aux patients, laboratoir
 - Superviser la plateforme.
 - Configurer les paramètres techniques et l’IA.
 	
- ###Lancer le Projet en Local	
+ ##Lancer le Projet en Local	
  ###Prérequis
 - Python 3.8+
 - Django
@@ -35,22 +35,22 @@ Elle propose une solution simple et intuitive destinée aux patients, laboratoir
 - MySQL (ex : WampServer / XAMPP)
 
 ### Étapes	
-###1.Cloner le projet :	
+1.Cloner le projet :	
 ```bash
 git clone https://github.com/leiti20/plateforme-web-Anaglobine.git	
 cd plateforme-web-Anaglobine	
-
-###2.Créer et activer un environnement virtuel :
+````
+2.Créer et activer un environnement virtuel :
 ```bash	
 python -m venv env	
 env\Scripts\activate   # Windows		
 # ou pour Linux/Mac: source env/bin/activate	
-	
-###3.Installer les dépendances :
+````	
+3.Installer les dépendances :
 ```bash
 pip install -r requirements.txt	
-	
-###4.Configurer la base de données dans settings.py
+````	
+4.Configurer la base de données dans settings.py
 ```bash
 DATABASES = {	
     'default': {	
@@ -62,17 +62,16 @@ DATABASES = {
         'PORT': '3306',	
     }	
 }	
-	
-###5.Appliquer les migrations :
+````	
+5.Appliquer les migrations :
 ```bash	
 python manage.py makemigrations	
 python manage.py migrate	
-	
-###6.Lancer le serveur :
+````	
+6.Lancer le serveur :
 ```bash	
 python manage.py runserver	
+````	
+7. Accéder à l’application : http://127.0.0.1:8000
 	
-###7. Accéder à l’application : http://127.0.0.1:8000
-	
-git clone https://github.com/leiti20/plateforme-web-Anaglobine.git
-cd plateforme-web-Anaglobine
+
