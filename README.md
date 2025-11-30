@@ -28,7 +28,8 @@ Visiteur
 - Configurer les paramètres techniques et l’IA.
 	
 Lancer le Projet en Local	
- ###Prérequis
+
+Prérequis
 - Python 3.8+
 - Django
 - pip
