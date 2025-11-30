@@ -1,0 +1,61 @@
+{% load static %}
+<header class="u-clearfix u-header u-palette-1-light-2 u-header" id="header" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+    <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <a href="" class="u-image u-logo u-image-1" data-image-width="499" data-image-height="500">
+            <img src="{% static 'anaglobine/images/v987-18a-removebg-preview.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+        <a href="{% url 'login' %}" class="u-image u-logo u-image-2" data-image-width="50" data-image-height="50">
+            <img src="{% static 'anaglobine/images/icons8-utilisateur-50.png' %}" class="u-logo-image u-logo-image-2">
+        </a>
+        <nav class="u-align-center u-menu u-menu-one-level u-offcanvas u-menu-1">
+            <div class="menu-collapse" style="text-transform: uppercase;">
+                <a class="u-button-style u-hamburger-link u-nav-link" aria-label="Open menu" aria-controls="bf2d" href="#">
+                    <svg class="u-svg-link" viewBox="0 0 24 24">
+                            <use xlink:href="#svg-c42d"></use>
+                        </svg>
+                    <svg class="u-svg-content" version="1.1" id="svg-c42d" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <rect y="1" width="16" height="2"></rect>
+                                <rect y="7" width="16" height="2"></rect>
+                                <rect y="13" width="16" height="2"></rect>
+                            </g>
+                        </svg>
+                </a>
+            </div>
+            <div class="u-custom-menu u-nav-container">
+                <ul class="u-nav u-spacing-0 u-unstyled u-nav-1">
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}">accueil</a>
+                    </li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-d936" data-page-id="282356856">Laboratoires</a>
+                    </li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#block-2" data-page-id="282356856">ANALYSES</a>
+                    </li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-c44f" data-page-id="282356856">CONTACT</a>
+                    </li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-ed4f" data-page-id="282356856">à Propos</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="bf2d" role="region" aria-label="Menu panel" class="u-custom-menu u-nav-container-collapse">
+                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                    <div class="u-inner-container-layout u-sidenav-overflow">
+                        <div class="u-menu-close" aria-label="Close menu"></div>
+                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}">accueil</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-d936" data-page-id="282356856">Laboratoires</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#block-1" data-page-id="282356856">ANALYSES</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-c44f" data-page-id="282356856">CONTACT</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'index' %}#sec-ed4f" data-page-id="282356856">à Propos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+            </div>
+        </nav>
+    </div>
+</header>

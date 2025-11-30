@@ -1,0 +1,142 @@
+body {
+  padding-top: 70px;
+  font-family: Arial, sans-serif;
+}
+
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.nav-link:hover {
+  background-color: #e2e6ea;
+  border-radius: 4px;
+}
+
+.input-group-text {
+  background-color: #e9ecef;
+}
+
+/* Structure principale */
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #343a40;
+  padding: 20px;
+  color: white;
+}
+
+/* Liens de navigation */
+.sidebar .nav-link {
+  color: white;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Liens au survol */
+.sidebar .nav-link:hover {
+  background-color: #495057;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+/* Contenu principal */
+.content {
+  flex-grow: 1;
+  padding: 30px;
+  flex-shrink: 1;
+  /* Permet à .content de se rétrécir si nécessaire */
+}
+
+#resultats {
+  width: 100%;
+  /* Utiliser 100% de la largeur disponible */
+  max-width: 1200px;
+  /* Limiter la largeur maximale si nécessaire */
+  margin: 0 auto;
+  /* Centrer horizontalement */
+  padding: 20px;
+  /* Padding pour donner un peu d'espace autour */
+}
+
+.pdf-thumbnail img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#rendezVous {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.resultats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.resultats-table th,
+.resultats-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.resultats-table th {
+  background-color: #f2f2f2;
+}
+
+.dark-mode .resultats-table th {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .resultats-table td {
+  background-color: #222;
+  color: white;
+}
+
+.btn-save {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-save:hover {
+  background-color: #4A90E2;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 4px;
+}
+
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+

@@ -1,0 +1,127 @@
+  img.rounded-circle {
+    width: 100px;
+    height: 100px;
+  }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('img/7892917.jpg');
+    background-size: cover; /* ou 'cover', 'auto' selon l'effet voulu */
+    background-repeat: no-repeat;
+    
+  }
+  .fw-bold{
+    color: white;
+  }
+
+  .navbar {
+    background-color: #adcce9;
+  }
+
+  .custom-btn-rdv {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+  }
+  
+  .custom-btn-rdv:hover {
+    background-color: #417dc1; /* Une teinte un peu plus foncée au survol */
+  }
+
+  #btnInfos {
+    border-color:#00325a ;
+    color: #00325a;
+  }
+  
+  #btnInfos:hover {
+    background-color:#00325a ;
+    color: white;
+  }
+  
+  #btnHistorique {
+    border-color: #00325a;
+    color: #00325a;
+  }
+  
+  #btnHistorique:hover {
+    background-color: #00325a;
+    color: white;
+  }
+  
+  /* Cartes Infos + Historique */
+  .card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 5px solid #4A90E2;
+  }
+  
+  /* Liste historique */
+  .list-group-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: #e0e0e0;
+  }
+  
+  /* Responsive spacing */
+  @media (max-width: 576px) {
+    .d-flex.gap-4 {
+      flex-direction: column;
+    }
+  }
+  
+  /* --- Fade in animation --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-section {
+  display: none;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Quand on l'affiche dynamiquement en JS */
+.slide-section.show {
+  display: block;
+}
+
+/* --- Effet flou + halo sur l'image de profil --- */
+img.rounded-circle {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 0 12px rgba(74, 144, 226, 0.6); /* halo bleuté */
+  filter: drop-shadow(0 0 6px rgba(0, 50, 90, 0.5));
+  transition: transform 0.3s ease;
+}
+img.rounded-circle:hover {
+  transform: scale(1.05);
+}
+
+/* --- Ombre douce sur les cartes --- */
+.card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+}
+
+.collapse:not(.show) {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, height 0.4s ease;
+}
+
+.collapse.show {
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.6s ease, height 0.6s ease;
+}
+.slide-section {
+  display: none;
+}
+#btnSettings img {
+  transition: transform 0.2s ease;
+}
+
+#btnSettings:hover img {
+  transform: rotate(20deg); /* Effet sympa au survol */
+  cursor: pointer;
+}

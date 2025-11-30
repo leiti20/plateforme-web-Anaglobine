@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface admin</title>
+  <link rel="stylesheet" href="{% static 'anaglobine/css/admin.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-size: cover; background-image: url('{% static 'anaglobine/images/7892917.jpg' %}');">
+</body>>
+
+<!-- Navbar -->
+<nav></nav>
+<div>
+  <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" style="background-color: #4A90E2;color: white;padding: 10px 20px;border: none;border-radius: 5px;cursor: pointer;font-weight: bold;transition: background-color 0.3s ease;
+      margin-left: 20px;" onmouseover="this.style.backgroundColor='#adcce9'"
+      onmouseout="this.style.backgroundColor='#adcce9'">
+      Déconnexion
+    </button>
+  </form>
+</div>
+<!-- Contenu principal -->
+<div class="container mt-4">
+  <div class="row my-4" id="dashboard">
+    <div class="col-md-4">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Patients</h5>
+          <p class="card-text" id="patientsToday">{{nb_patients}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-secondary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Réceptionniste</h5>
+          <p class="card-text" id="paiementsEffectues">{{nb_receptionniste}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="search" class="form-label">Rechercher par Nom ou Rôle</label>
+    <input type="text" id="search" class="form-control" placeholder="Rechercher..." onkeyup="searchTable()">
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#menuRdv">
+      Gérer comptes
+    </button>
+    <div class="collapse mt-2" id="menuRdv">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-comptes">
+          {% for compte in comptes %}
+          <tr>
+            <td>{{ compte.nom }}</td>
+            <td>{{ compte.prenom }}</td>
+            <td>{{ compte.email }}</td>
+            <td>{{ compte.role }}</td>
+            <td>
+              <!-- Button to trigger modal and pass user data -->
+              <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#modaleModifierCompte"
+                data-nom="{{ compte.nom }}" data-prenom="{{ compte.prenom }}" data-email="{{ compte.email }}"
+                data-role="{{ compte.role }}" onclick="ouvrirModaleModification(this)">
+                Modifier
+              </button>
+              <a href="{% url 'supprimer_compte' role=compte.role email=compte.email %}"
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce compte ?');"
+                class="btn btn-danger btn-sm">
+                Supprimer
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Modification -->
+  <div class="modal fade" id="modaleModifierCompte" tabindex="-1" aria-labelledby="modifierCompteLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modifierCompteLabel">Modifier le compte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="{% url 'adminag' %}">
+            <input type="hidden" id="originalEmail" name="originalEmail">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="modifierNom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="modifierNom" name="modifierNom" required>
+            </div>
+            <div class="mb-3">
+              <label for="modifierPrenom" class="form-label">Prénom</label>
+              <input type="text" class="form-control" id="modifierPrenom" name="modifierPrenom">
+            </div>
+            <div class="mb-3">
+              <label for="modifierEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="modifierEmail" name="modifierEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="modifierRole" class="form-label">Rôle</label>
+              <select class="form-select" id="modifierRole" name="modifierRole">
+                <option value="Administrateur">Administrateur</option>
+                <option value="Réceptionniste">Réceptionniste</option>
+                <option value="Patient">Patient</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function searchTable() {
+    const searchQuery = document.getElementById('search').value.toLowerCase();
+    const rows = document.querySelectorAll('#table-comptes tr');
+
+    rows.forEach(row => {
+      const name = row.cells[0].textContent.toLowerCase();
+      const role = row.cells[3].textContent.toLowerCase();
+      if (name.includes(searchQuery) || role.includes(searchQuery)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<script src="{% static 'anaglobine/js/admin.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+
+</html>

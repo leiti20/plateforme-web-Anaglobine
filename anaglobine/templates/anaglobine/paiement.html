@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'anaglobine/css/site.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'anaglobine/css/index.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/site.js' %}" defer=""></script>
+    <link rel="stylesheet" href="{% static 'anaglobine/css/paiement.css' %}">
+
+    <script type="text/javascript">
+        function togglePaymentFields() {
+            const paymentMethod = document.querySelector('input[name="mode_paiement"]:checked').value;
+            const cardFields = document.getElementById("card-payment-fields");
+            if (paymentMethod === "en_ligne") {
+                cardFields.style.display = "block";
+            } else {
+                cardFields.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    {% include "anaglobine/includes/header.html" %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <!-- Section des informations de facturation -->
+                <div class="col">
+                    <h3 class="title">Informations de facturation</h3>
+                    <div class="inputBox">
+                        <span>Nom complet :</span>
+                        <input type="text" name="nom" value="{{ patient.nom }}" readonly>
+                    </div>
+                    <div class="inputBox">
+                        <span>Email :</span>
+                        <input type="email" name="email" value="{{ patient.email }}" readonly>
+                    </div>
+                    <div class="inputBox">
+                        <span>Montant à payer :</span>
+                        <input type="text" name="montant" value="{{ montant }}" readonly>   
+                    </div>
+                </div>
+
+                <!-- Sélection du mode de paiement -->
+                <div class="col">
+                    <h3 class="title">Méthode de paiement</h3>
+                    <div class="inputBox">
+                        <span>Comment souhaitez-vous payer ?</span>
+                        <label><input type="radio" name="mode_paiement" value="en_ligne"
+                                onclick="togglePaymentFields()">Paiement en ligne</label><br>
+                        <label><input type="radio" name="mode_paiement" value="especes"
+                                onclick="togglePaymentFields()">Paiement au laboratoire</label>
+                    </div>
+
+                    <!-- Champs de paiement par carte (visible uniquement si 'Paiement en ligne' est sélectionné) -->
+                    <div id="card-payment-fields" style="display:none;">
+                        <h3 class="title">Détails de la carte</h3>
+                        <div class="inputBox">
+                            <span>Nom sur la carte :</span>
+                            <input type="text" name="name_on_card" placeholder="M. John Doe">
+                        </div>
+                        <div class="inputBox">
+                            <span>Code de carte :</span>
+                            <input type="number" name="credit_card_number" placeholder="1111-2222-3333-4444">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Valider le paiement" class="submit-btn">
+        </form>
+
+        {% if error_message %}
+        <div class="error-message">
+            <p>{{ error_message }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    {% include "anaglobine/includes/footer.html" %}
+</body>
+
+</html>

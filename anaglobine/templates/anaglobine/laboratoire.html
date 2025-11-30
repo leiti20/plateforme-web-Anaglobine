@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="fr">
+
+<head>
+
+  <title>Laboratoires</title>
+  <link rel="stylesheet" href="{% static 'anaglobine/css/site.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'anaglobine/css/laboratoire.css' %}" media="screen">
+  <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/jquery.js' %}" defer=""></script>
+  <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/site.js' %}" defer=""></script>
+
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/v987-18a-removebg-preview.png"
+}</script>
+</head>
+
+<body data-path-to-root="./" data-include-products="false" class="u-body u-palette-1-base u-xl-mode" data-lang="fr">
+  {% include "anaglobine/includes/header.html" %}
+  <section class="u-clearfix u-gradient u-section-1" id="block-1" data-href="{% url 'laboratoire' %}#block-2"
+    data-page-id="623803836">
+    <div
+      class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+      <h2 class="u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000"
+        data-animation-delay="0">Trouvez les meilleurs laboratoires pour&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp;vos analyses médicales
+      </h2>
+      <h5 class="u-text u-text-default u-text-2">Consultez les laboratoires , vérifier les créneaux disponibles et
+        ​réservez&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;vos analyses facilement
+      </h5>
+      <a href="{% url 'laboratoire' %}#block-2" data-page-id="623803836"
+        class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius u-btn-1">voir
+        les labotratoires </a>
+    </div>
+  </section>
+  <section class="u-clearfix u-gradient u-section-2" id="block-2">
+    <div
+      class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+      <h3 class="u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000"
+        data-animation-delay="0">Nos laboratoires partenaires</h3>
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div
+              class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-1">
+              <img class="custom-expanded u-image u-image-1" src="{% static 'anaglobine/images/xcxc.jpg' %}"
+                data-image-width="735" data-image-height="490">
+              <h4 class="u-align-left u-text u-text-default u-text-2"> Laboratoire d'Analyses Médicales&nbsp;Dr Fares
+                Moualek</h4>
+              <a href="{% url 'LaboMoualek' %}"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1"
+                title="details_labo1">VOIR DËTAILS </a>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div
+              class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+              <img class="custom-expanded u-image u-image-2" src="{% static 'anaglobine/images/73737559.jpg' %}"
+                data-image-width="736" data-image-height="491">
+              <h4 class="u-align-left u-text u-text-default u-text-3"> Laboratoire Dr D. Bouras </h4>
+              <a href="{% url 'LabBouras' %}"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-2"
+                title="Lab_Bouras">VOIR DÉTAILS</a>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div
+              class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-3">
+              <img class="custom-expanded u-image u-image-3" src="{% static 'anaglobine/images/dfa444db.jpg'%}"
+                data-image-width="626" data-image-height="939">
+              <h4 class="u-align-left u-text u-text-default u-text-4"> Laboratoire Central – CHU de Béjaïa (Hôpital
+                Khellil Amrane)</h4>
+              <a href="{% url 'LaboKhellilAmrane' %}"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-3"
+                title="​Labo_Khellil_Amrane"> VOIR DËTAILS </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-expanded-width u-list u-list-2">
+        <div class="u-repeater u-repeater-2">
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+              <img alt="" class="u-expanded-width u-image u-image-default u-image-4" data-image-width="736"
+                data-image-height="1104" src="{% static 'anaglobine/images/4e6182.jpg' %}">
+              <h4 class="u-align-left u-text u-text-5"> Laboratoire d'Analyses Médicales Dr. Lalaoui Kamel</h4>
+              <a href="{% url 'LaboLalaoui' %}" data-page-id="61900798"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-4"
+                title="​Labo_ Lalaoui"> VOIR DËTAILS </a>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+              <img alt="" class="u-expanded-width u-image u-image-default u-image-5" data-image-width="626"
+                data-image-height="470" src="{% static 'anaglobine/images/5c981d68d.jpg' %}">
+              <h4 class="u-align-left u-text u-text-6"> Laboratoire d'Analyses Médicales Dr. Hocine Sklab</h4>
+              <a href="{% url 'LaboHocineSklab' %}" data-page-id="997924270"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-5"
+                title="​​Labo_Hocine_Sklab"> VOIR DËTAILS </a>
+            </div>
+          </div>
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
+              <img alt="" class="u-expanded-width u-image u-image-default u-image-6" data-image-width="600"
+                data-image-height="391" src="{% static 'anaglobine/images/1a3.jpg' %}">
+              <h4 class="u-align-left u-text u-text-7"> Laboratoire Dr. Abdelhamid Kebbiche</h4>
+              <a href="{% url 'LaboKebbiche' %}" data-page-id="2733003117"
+                class="u-active-none u-align-left u-border-2 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-6"
+                title="​Labo_Kebbiche"> VOIR DËTAILS </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include "anaglobine/includes/footer.html" %}
+
+</body>
+
+</html>

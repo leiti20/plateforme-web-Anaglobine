@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prise de RDV - Laboratoire</title>
+  <link rel="stylesheet" href="{% static 'anaglobine/css/rdv.css' %}" />
+  <link rel="stylesheet" href="{% static 'anaglobine/css/site.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'anaglobine/css/index.css' %}" media="screen">
+  <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/jquery.js' %}" defer=""></script>
+  <script class="u-script" type="text/javascript" src="{% static 'anaglobine/js/site.js' %}" defer=""></script>
+
+</head>
+
+<body>
+
+  {% include "anaglobine/includes/header.html" %}
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Types d'analyse</h3>
+      <ul>
+        <li><a href="{% url 'rendezvous' %}">Tous</a></li>
+        {% for t in types_analyse %}
+        <li>
+          <a href="{% url 'rendezvous' %}?type={{ t.id }}">{{ t.nom }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <main class="main">
+      <h2>Prendre un rendez-vous</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Labo</th>
+            <th>Analyse</th>
+            <th>Prix</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in creneaux %}
+          <tr>
+            <td>{{ c.laboratoire.nom }}</td>
+            <td>{{ c.type_analyse.nom }}</td>
+            <td>
+              {% for a in c.laboratoire.analyses_disponibles.all %}
+                {% if a.type_analyse == c.type_analyse %}
+                  {{ a.prix }} DA
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td>{{ c.date }}</td>
+            <td>{{ c.heure_debut }}</td>
+            <td>
+              {% if request.session.user_id and request.session.user_type == 'patient' %}
+                <a class="btn-reserver" href="{% url 'paiement_view' creneau_id=c.id %}">Réserver</a>
+              {% else %}
+                <a class="btn-reserver" href="{% url 'login' %}?next={% url 'paiement_view' creneau_id=c.id %}">Se connecter pour réserver</a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>        
+      </table>
+    </main>
+  </div>
+  {% include "anaglobine/includes/footer.html" %}
+
+</body>
+
+</html>

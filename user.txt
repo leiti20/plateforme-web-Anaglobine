@@ -1,0 +1,42 @@
+nom="Ladmin",
+email="admin.anaglobine@gmail.com",
+mot_de_passe= anaglobine,
+
+--------------------------------------------
+# Données des réceptionnistes
+receptionnistes_data = [
+    {
+        "nom": "Réceptionniste Moualek",
+        "email": "reception.moualek@gmail.com",
+        "mot_de_passe": "Moualek123"
+    },
+    {
+        "nom": "Réceptionniste Bouras",
+        "email": "reception.bouras@gmail.com",
+        "mot_de_passe": "Bouras123"
+    },
+    {
+        "nom": "Réceptionniste CHU Béjaïa",
+        "email": "reception.chubejaia@gmail.com",
+        "mot_de_passe": "CHU123"
+    },
+    {
+        "nom": "Réceptionniste Lalaoui",
+        "email": "reception.lalaoui@gmail.com",
+        "mot_de_passe": "Lalaoui123"
+    },
+    {
+        "nom": "Réceptionniste Hocine Sklab",
+        "email": "reception.sklab@gmail.com",
+        "mot_de_passe": "Sklab123"
+    },
+    {
+        "nom": "Réceptionniste Kebbiche",
+        "email": "reception.kebbiche@gmail.com",
+        "mot_de_passe": "Kebbiche123"
+    }
+]
+
+
+------------------
+patient : 

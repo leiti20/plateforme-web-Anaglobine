@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'anaglobine/css/login.css' %}">
+    <title>Connexion / Inscription</title>
+    <style>
+        .icon i {
+            font-size: 18px; /* Réduit la taille des icônes */
+        }
+    </style>
+</head>
+<body style="background: url('{% static 'anaglobine/images/ai-generated-8756077_1280.jpg' %}') no-repeat; background-size: cover;">
+    <button onclick="window.location.href='/'" style="background-color: #4c7399; color: white; border: none; padding: 10px 20px; font-size: 16px; 
+    cursor: pointer; border-radius: 5px; transition: background-color 0.3s;margin-bottom: 10px;">
+        Retour à l'accueil
+      </button>
+    <div class="container" id="container">
+
+        <!-- FORMULAIRE D’INSCRIPTION -->
+        <div class="form-container sign-up">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="register"> <!-- Champ caché pour l'action -->
+                <h1>Créer un compte</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilisez votre e-mail pour l'inscription</span>
+                <div class="name_container">
+                    <input type="text" name="nom" placeholder="Nom" required>
+                    <input type="text" name="prenom" placeholder="Prénom" required>
+                </div>
+                <input type="text" name="age" placeholder="Âge">
+                <input type="text" name="telephone" placeholder="Téléphone">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <br>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+
+        <!-- FORMULAIRE DE CONNEXION -->
+        <div class="form-container sign-in">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="login"> <!-- Champ caché pour l'action -->
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                <h1>Se connecter</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilisez votre e-mail et mot de passe</span>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+
+        <!-- PANNEAU DE BASCULE -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bon retour !</h1>
+                    <p>Entrez vos informations personnelles pour utiliser toutes les fonctionnalités de l'application</p>
+                    <button class="hidden" id="login">Se connecter</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Bonjour, ami(e) !</h1>
+                    <p>Inscrivez-vous avec vos informations personnelles pour utiliser toutes les fonctionnalités de l'application</p>
+                    <button class="hidden" id="register">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'anaglobine/js/login.js' %}"></script>
+</body>
+</html>
